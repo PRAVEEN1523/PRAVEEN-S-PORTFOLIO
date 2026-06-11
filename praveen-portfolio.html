@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praveen Ravikumar | Frontend Developer & UI/UX Designer</title>
+<link rel="icon" type="image/png" href="avatar.png">
+<link rel="apple-touch-icon" href="avatar.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="praveen-portfolio.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">PRV</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+<div id="scrollProgress"></div>
+
+<!-- CURSOR -->
+<div class="cursor cursor-dot" id="cursorDot"></div>
+
+<!-- BACK TO TOP -->
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
+<!-- CERT MODAL -->
+<div class="cert-modal-overlay" id="certModal" onclick="closeCertModal(event)">
+  <div class="cert-modal">
+    <div class="cert-modal-label">Certificate Preview</div>
+    <div class="cert-modal-close" onclick="closeCertModal(null,true)"><i class="fas fa-times"></i></div>
+    <div class="cert-modal-badge" id="modalBadge"><i class="fas fa-certificate" style="color:#22d3ee"></i></div>
+    <div class="cert-modal-title" id="modalTitle">Certificate</div>
+    <div class="cert-modal-grid">
+      <div class="cert-preview">
+        <img id="modalCertImg" src="" alt="Certificate" style="width:100%;height:100%;object-fit:contain;border-radius:10px;display:block;">
+      </div>
+      <div class="cert-details">
+        <div class="cert-dl">Issuer</div><div class="cert-dv" id="modalIssuer">—</div>
+        <div class="cert-dl">Year</div><div class="cert-dv" id="modalYear">—</div>
+        <div class="cert-dl">Category</div><div class="cert-dv" id="modalCat">—</div>
+        <hr class="cert-modal-hr">
+        <button class="cert-close-btn" onclick="closeCertModal(null,true)">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">PRV</a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#hero" onclick="closeMobile()">Home</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#education" onclick="closeMobile()">Education</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#achievements" onclick="closeMobile()">Achievements</a>
+  <a href="#certifications" onclick="closeMobile()">Certifications</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge"><span class="badge-dot"></span>MCA Graduate · CGPA 9.20</div>
+      <h1 class="hero-title">Hi, I'm <span>Praveen<br>Ravikumar</span></h1>
+      <p class="hero-type"><span id="typeText"></span><span class="type-cursor"></span></p>
+      <p class="hero-desc">I build beautiful, modern, and intelligent digital experiences with frontend development, UI/UX design, and AI-powered solutions.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+        <a href="assets/PRAVEEN RESUME APR UPDATED.pdf.pdf" download="Praveen_Ravikumar_Resume.pdf" class="btn-secondary">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/praveen-prv" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="mailto:praveenprv2004@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+        <a href="https://instagram.com/praveen_prv_/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-avatar-wrap">
+        <img src="avatar.png" alt="Praveen Ravikumar" class="hero-avatar-img">
+      </div>
+      <div class="float-tag float-tag-1">
+        <span><i class="fas fa-bolt" style="color:#fbbf24"></i></span>
+        <div><div style="font-size:0.72rem;color:var(--gray)">Status</div><div style="font-size:0.82rem;font-weight:600">Open to Opportunities</div></div>
+      </div>
+      <div class="float-tag float-tag-2">
+        <span><i class="fas fa-trophy" style="color:#fbbf24"></i></span>
+        <div><div style="font-size:0.72rem;color:var(--gray)">Hackathon</div><div style="font-size:0.82rem;font-weight:600">1st Place Winner</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-img-frame">
+          <img src="avatar_4.png" alt="Praveen Ravikumar" class="about-photo">
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.15s">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Crafting Digital<br><span>Experiences</span></h2>
+        <p class="about-text">I am Praveen Ravikumar, Completed Master of Computer Applications at Excel Engineering College with a CGPA of 9.20 in the year of 2026. I am passionate about frontend development, UI/UX designing, and artificial intelligence. I enjoy creating visually appealing and user-friendly web experiences. I love turning ideas into interactive digital products and continuously learning new technologies.</p>
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Name</div><div class="info-value">Praveen Ravikumar</div></div>
+          <div class="info-item"><div class="info-label">Degree</div><div class="info-value">MCA (2024–2026)</div></div>
+          <div class="info-item"><div class="info-label">College</div><div class="info-value">Excel Engineering College</div></div>
+          <div class="info-item"><div class="info-label">Location</div><div class="info-value">Namakkal, Tamil Nadu</div></div>
+          <div class="info-item"><div class="info-label">Languages</div><div class="info-value">English, Tamil</div></div>
+          <div class="info-item"><div class="info-label">Status</div><div class="info-value" style="color:var(--cyan)">Open to Opportunities ✦</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar reveal" style="transition-delay:0.2s">
+      <div class="stat-item">
+        <div class="stat-number" data-target="9.20">0</div>
+        <div class="stat-label">CGPA · MCA</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="84">0</div>
+        <div class="stat-label">% · BCA</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="5+">0</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="7">0</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-number available-badge">
+          <span class="avail-dot"></span>Available
+        </div>
+        <div class="stat-label">for Hire</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Skills</div>
+      <h2 class="section-title">Technical <span>Stacks</span></h2>
+      <p class="section-sub">Grouped by category — click a filter to explore each domain.</p>
+    </div>
+    <div class="ts-layout reveal" style="transition-delay:0.1s">
+
+      <!-- LEFT: Category sidebar -->
+      <div class="ts-sidebar">
+        <button class="ts-filter active" data-filter="all">ALL TECH</button>
+        <button class="ts-filter" data-filter="languages">LANGUAGES</button>
+        <button class="ts-filter" data-filter="frameworks">FRAMEWORKS</button>
+        <button class="ts-filter" data-filter="backend">BACKEND</button>
+        <button class="ts-filter" data-filter="databases">DATABASES</button>
+        <button class="ts-filter" data-filter="design">DESIGN</button>
+        <button class="ts-filter" data-filter="software">SOFTWARE</button>
+        <button class="ts-filter" data-filter="ai">AI &amp; EMERGING</button>
+      </div>
+
+      <!-- RIGHT: Skills grid -->
+      <div class="ts-grid" id="tsGrid">
+
+        <div class="ts-card" data-cat="languages">
+          <div class="ts-icon" style="background:rgba(53,114,165,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+          <div class="ts-info"><div class="ts-name">Python</div><div class="ts-cat-tag">LANGUAGES</div><div class="ts-desc">Core Development &amp; Scripting</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="languages">
+          <div class="ts-icon" style="background:rgba(240,219,79,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+          <div class="ts-info"><div class="ts-name">JavaScript</div><div class="ts-cat-tag">LANGUAGES</div><div class="ts-desc">Dynamic Web Applications</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="languages">
+          <div class="ts-icon" style="background:rgba(227,76,38,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
+          <div class="ts-info"><div class="ts-name">HTML5</div><div class="ts-cat-tag">LANGUAGES</div><div class="ts-desc">Web Structure &amp; Semantics</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="languages">
+          <div class="ts-icon" style="background:rgba(38,77,228,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"></div>
+          <div class="ts-info"><div class="ts-name">CSS3</div><div class="ts-cat-tag">LANGUAGES</div><div class="ts-desc">Responsive Styling</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="languages">
+          <div class="ts-icon" style="background:rgba(83,130,161,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
+          <div class="ts-info"><div class="ts-name">Core Java</div><div class="ts-cat-tag">LANGUAGES</div><div class="ts-desc">Object-Oriented Programming</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="frameworks">
+          <div class="ts-icon" style="background:rgba(97,218,251,0.14)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></div>
+          <div class="ts-info"><div class="ts-name">React JS</div><div class="ts-cat-tag">FRAMEWORKS</div><div class="ts-desc">Component-Based UIs</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="frameworks">
+          <div class="ts-icon" style="background:rgba(121,82,179,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap"></div>
+          <div class="ts-info"><div class="ts-name">Bootstrap</div><div class="ts-cat-tag">FRAMEWORKS</div><div class="ts-desc">Rapid UI Development</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="backend">
+          <div class="ts-icon" style="background:rgba(255,255,255,0.06)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" alt="Flask" style="filter:invert(1) brightness(0.85)"></div>
+          <div class="ts-info"><div class="ts-name">Flask</div><div class="ts-cat-tag">BACKEND</div><div class="ts-desc">Python Micro Framework</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="databases">
+          <div class="ts-icon" style="background:rgba(0,117,143,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"></div>
+          <div class="ts-info"><div class="ts-name">MySQL</div><div class="ts-cat-tag">DATABASES</div><div class="ts-desc">Relational Database</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="databases">
+          <div class="ts-icon" style="background:rgba(255,202,40,0.15)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"></div>
+          <div class="ts-info"><div class="ts-name">Firebase</div><div class="ts-cat-tag">DATABASES</div><div class="ts-desc">Real-Time NoSQL Database</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="design">
+          <div class="ts-icon" style="background:rgba(242,78,30,0.15)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"></div>
+          <div class="ts-info"><div class="ts-name">Figma</div><div class="ts-cat-tag">DESIGN</div><div class="ts-desc">UI/UX Prototyping</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="design">
+          <div class="ts-icon" style="background:rgba(0,196,204,0.15)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva"></div>
+          <div class="ts-info"><div class="ts-name">Canva</div><div class="ts-cat-tag">DESIGN</div><div class="ts-desc">Visual Design &amp; Graphics</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="software">
+          <div class="ts-icon" style="background:rgba(241,78,50,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+          <div class="ts-info"><div class="ts-name">Git &amp; GitHub</div><div class="ts-cat-tag">SOFTWARE</div><div class="ts-desc">Version Control</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="software">
+          <div class="ts-icon" style="background:rgba(0,122,204,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"></div>
+          <div class="ts-info"><div class="ts-name">VS Code</div><div class="ts-cat-tag">SOFTWARE</div><div class="ts-desc">Primary Code Editor</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="software">
+          <div class="ts-icon" style="background:rgba(0,120,212,0.18)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows"></div>
+          <div class="ts-info"><div class="ts-name">Windows OS</div><div class="ts-cat-tag">SOFTWARE</div><div class="ts-desc">Primary Operating System</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="ai">
+          <div class="ts-icon" style="background:rgba(34,211,238,0.12)"><i class="fas fa-robot" style="font-size:1.6rem;color:#22d3ee"></i></div>
+          <div class="ts-info"><div class="ts-name">AI with Python</div><div class="ts-cat-tag">AI &amp; EMERGING</div><div class="ts-desc">Generative AI &amp; LLMs</div></div>
+        </div>
+
+      <div class="ts-card" data-cat="ai">
+          <div class="ts-icon" style="background:rgba(168,85,247,0.12)">
+          <i class="fas fa-lightbulb" style="font-size:1.6rem;color:#a855f7"></i>
+        </div>
+        <div class="ts-info">
+          <div class="ts-name">Prompt Engineering</div>
+          <div class="ts-cat-tag">AI &amp; EMERGING</div>
+          <div class="ts-desc">Effective AI Prompts</div>
+        </div>
+      </div>
+
+        <div class="ts-card" data-cat="ai">
+          <div class="ts-icon" style="background:rgba(56,189,248,0.12)"><i class="fas fa-cloud" style="font-size:1.6rem;color:#38bdf8"></i></div>
+          <div class="ts-info"><div class="ts-name">Cloud Computing</div><div class="ts-cat-tag">AI &amp; EMERGING</div><div class="ts-desc">Cloud Platforms &amp; Services</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="ai">
+          <div class="ts-icon" style="background:rgba(245,158,11,0.12)"><i class="fas fa-brain" style="font-size:1.6rem;color:#f59e0b"></i></div>
+          <div class="ts-info"><div class="ts-name">Machine Learning</div><div class="ts-cat-tag">AI &amp; EMERGING</div><div class="ts-desc">ML Concepts &amp; Algorithms</div></div>
+        </div>
+
+        <div class="ts-card" data-cat="ai">
+          <div class="ts-icon" style="background:rgba(239,68,68,0.12)"><i class="fas fa-shield-alt" style="font-size:1.6rem;color:#ef4444"></i></div>
+          <div class="ts-info"><div class="ts-name">Cyber Security</div><div class="ts-cat-tag">AI &amp; EMERGING</div><div class="ts-desc">Digital Safety Essentials</div></div>
+        </div>
+
+      </div><!-- end ts-grid -->
+    </div><!-- end ts-layout -->
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">Academic <span>Journey</span></h2>
+      <p class="section-sub">A consistent academic record reflecting dedication and a passion for computer science.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal"><div class="timeline-dot"></div>
+        <div class="tl-card"><div class="tl-year">2024 – 2026 · Completed</div><div class="tl-degree">Master of Computer Applications (MCA)</div><div class="tl-school">Excel Engineering College, Namakkal</div><span class="tl-score"><i class="fas fa-star" style="color:var(--cyan)"></i> CGPA: 9.20</span></div>
+      </div>
+      <div class="timeline-item reveal" style="transition-delay:0.1s"><div class="timeline-dot"></div>
+        <div class="tl-card"><div class="tl-year">2021 – 2024</div><div class="tl-degree">Bachelor of Computer Applications (BCA)</div><div class="tl-school">Muthayammal Memorial College of Arts and Science</div><span class="tl-score"><i class="fas fa-star" style="color:var(--cyan)"></i> Percentage: 84%</span></div>
+      </div>
+      <div class="timeline-item reveal" style="transition-delay:0.2s"><div class="timeline-dot"></div>
+        <div class="tl-card"><div class="tl-year">2020 – 2021</div><div class="tl-degree">Higher Secondary Certificate (HSC)</div><div class="tl-school">Bharathi Boys Higher Secondary School</div><span class="tl-score"><i class="fas fa-star" style="color:var(--cyan)"></i> Score: 86.67%</span></div>
+      </div>
+      <div class="timeline-item reveal" style="transition-delay:0.3s"><div class="timeline-dot"></div>
+        <div class="tl-card"><div class="tl-year">2018 – 2019</div><div class="tl-degree">Secondary School Leaving Certificate (SSLC)</div><div class="tl-school">Selvam Higher Secondary School</div><span class="tl-score"><i class="fas fa-star" style="color:var(--cyan)"></i> Score: 78%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- ════════ WORK EXPERIENCE ════════ -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Experience</div>
+      <h2 class="section-title">Work <span>Experience</span></h2>
+      <p class="section-sub">Real-world internships and professional roles that shaped my technical skills.</p>
+    </div>
+
+    <!-- Horizontal timeline -->
+    <div class="exp-timeline reveal" style="transition-delay:0.1s">
+      <div class="exp-tl-track">
+        <div class="exp-tl-node">
+          <div class="exp-tl-num">#01</div>
+          <div class="exp-tl-circle exp-tl-circle-1">2025</div>
+          <div class="exp-tl-connector"></div>
+        </div>
+        <div class="exp-tl-node">
+          <div class="exp-tl-num">#02</div>
+          <div class="exp-tl-circle exp-tl-circle-2">2026</div>
+          <div class="exp-tl-connector exp-tl-connector-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="exp-cards reveal" style="transition-delay:0.2s">
+      <!-- Card 1 -->
+      <div class="exp-card exp-card-1">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-role">Web Technologies Intern</div>
+            <div class="exp-meta">
+              <span class="exp-company"><i class="fas fa-briefcase"></i>Nurture Infotech, Erode</span>
+              <span class="exp-dot">·</span>
+              <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag exp-tag-yellow"><i class="fas fa-calendar-alt"></i> 2025</span>
+          <span class="exp-tag exp-tag-outline">Internship</span>
+          <span class="exp-tag exp-tag-outline">June – July</span>
+        </div>
+        <hr class="exp-hr">
+        <ul class="exp-points">
+          <li>Built responsive web pages using HTML, CSS, and JavaScript</li>
+          <li>Designed UI components aligned with modern UX principles</li>
+          <li>Had an hands-on experience to work with Web Technologies Effectively</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="exp-card exp-card-2">
+        <div class="exp-card-header">
+          <div>
+            <div class="exp-role">Data Engineer Intern</div>
+            <div class="exp-meta">
+              <span class="exp-company"><i class="fas fa-briefcase"></i> Eastcom, Singapore</span>
+              <span class="exp-dot">·</span>
+              <span class="exp-location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+            </div>
+          </div>
+        </div>
+        <div class="exp-tags">
+          <span class="exp-tag exp-tag-violet"><i class="fas fa-calendar-alt"></i> 2026</span>
+          <span class="exp-tag exp-tag-outline-v">Internship</span>
+          <span class="exp-tag exp-tag-outline-v">Jan – Apr</span>
+        </div>
+        <hr class="exp-hr" style="border-color:rgba(139,92,246,0.2)">
+        <ul class="exp-points">
+          <li>Developed a PDF data extraction system using Python</li>
+          <li>Converted unstructured data into clean, structured Excel formats</li>
+          <li>Ensured data accuracy, validation, and processing efficiency</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom stats row -->
+    <div class="exp-stats reveal" style="transition-delay:0.3s">
+      <div class="exp-stat">
+        <div class="exp-stat-num">02</div>
+        <div class="exp-stat-label">Total Positions</div>
+      </div>
+      <div class="exp-stat-div"></div>
+      <div class="exp-stat">
+        <div class="exp-stat-num">2025–26</div>
+        <div class="exp-stat-label">Years Active</div>
+      </div>
+      <div class="exp-stat-div"></div>
+      <div class="exp-stat">
+        <div class="exp-stat-num">AI + Web</div>
+        <div class="exp-stat-label">Domains</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Projects</div>
+      <h2 class="section-title">Things I've <span>Built</span></h2>
+      <p class="section-sub">From AI-powered platforms to interactive games — each project is a story of learning and creativity.</p>
+    </div>
+    <div class="featured-project reveal" style="transition-delay:0.1s">
+      <div class="featured-tag"><i class="fas fa-star"></i> Final Year Project</div>
+      <div class="featured-grid">
+        <div>
+          <div class="featured-mockup">
+            <div class="mockup-screen">
+              <div class="mockup-bar">
+                <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#28c840"></div>
+                <div style="flex:1;height:6px;background:rgba(34,211,238,0.15);border-radius:3px;margin-left:8px"></div>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-sidebar">
+                  <div class="mockup-item" style="width:70%;height:6px;background:var(--cyan);opacity:0.6"></div>
+                  <div class="mockup-item" style="width:90%"></div>
+                  <div class="mockup-item" style="width:60%"></div>
+                  <div class="mockup-item" style="width:80%"></div>
+                  <div class="mockup-item" style="width:50%"></div>
+                </div>
+                <div class="mockup-main">
+                  <div class="mockup-card-sim" style="flex:0.8">AI Mock Interview</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1.2">
+                    <div class="mockup-card-sim" style="font-size:0.5rem">Resume<br>Analyzer</div>
+                    <div class="mockup-card-sim" style="font-size:0.5rem;border-color:rgba(236,72,153,0.15)">Performance</div>
+                    <div class="mockup-card-sim" style="font-size:0.5rem;border-color:rgba(139,92,246,0.15)">Confidence</div>
+                    <div class="mockup-card-sim" style="font-size:0.5rem">Smart Tips</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="featured-title">Prep Vibes – AI-Based Smart Interview Preparation &amp; Performance Analysis System</div>
+          <p class="featured-desc">An AI-powered interview preparation platform that helps students improve their interview performance. Provides mock interview practice, AI-based performance analysis, confidence tracking, and resume analysis with smart feedback.</p>
+          <div class="feature-chips">
+            <div class="feat-chip"><i class="fas fa-robot"></i> AI Mock Interview</div>
+            <div class="feat-chip"><i class="fas fa-file-alt"></i> Resume Analyzer</div>
+            <div class="feat-chip"><i class="fas fa-chart-line"></i> Performance Dashboard</div>
+            <div class="feat-chip"><i class="fas fa-smile"></i> Confidence Analysis</div>
+            <div class="feat-chip"><i class="fas fa-lightbulb"></i> AI Chat Bot</div>
+            <div class="feat-chip"><i class="fas fa-book"></i> Learning Tab</div>
+          </div>
+          <div class="tech-pills">
+            <span class="tech-pill tp-cyan">HTML</span>
+            <span class="tech-pill tp-yellow">CSS</span>
+            <span class="tech-pill tp-default">JavaScript</span>
+            <span class="tech-pill tp-violet">Python</span>
+            <span class="tech-pill tp-green">AI APIs</span>
+            <span class="tech-pill tp-violet">Flask</span>
+            <span class="tech-pill tp-pink">Firebase DB</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:60px">
+      <div class="section-label" style="margin-bottom:30px">Other Projects</div>
+      <div class="projects-grid">
+        <div class="proj-card reveal">
+          <div class="proj-icon"><i class="fas fa-comments"></i></div>
+          <div class="proj-title">Virtual Counselor Platform</div>
+          <div class="proj-desc">A multi-tab stress-relief web application featuring an AI chatbot for mental wellness support, relaxation exercises, and interactive mini games.</div>
+          <div class="tech-pills">
+            <span class="tech-pill tp-yellow">HTML</span><span class="tech-pill tp-yellow">CSS</span><span class="tech-pill tp-yellow">JavaScript</span><span class="tech-pill tp-violet">Python</span><span class="tech-pill tp-violet">Chatbot API</span>
+          </div>
+        </div>
+        <div class="proj-card reveal" style="transition-delay:0.1s">
+          <div class="proj-icon"><i class="fas fa-wallet"></i></div>
+          <div class="proj-title">Expenses Tracker</div>
+          <div class="proj-desc">A simple and user-friendly expense tracking application that helps users manage their daily spending. Add, edit, delete expenses, categorize transactions, and view totals with a clean responsive UI.</div>
+          <div class="tech-pills">
+            <span class="tech-pill tp-yellow">HTML</span><span class="tech-pill tp-yellow">CSS</span><span class="tech-pill tp-yellow">JavaScript</span><span class="tech-pill tp-cyan">SQLite</span>
+          </div>
+        </div>
+        <div class="proj-card reveal" style="transition-delay:0.2s">
+          <div class="proj-icon"><i class="fas fa-users"></i></div>
+          <div class="proj-title">One Spot</div>
+          <div class="proj-desc">A hackathon-winning team project — a web app that connects students with volunteer teachers. Enables direct learning, community discussions, and a simple way to solve doubts together.</div>
+          <div class="tech-pills">
+            <span class="tech-pill tp-yellow">HTML</span><span class="tech-pill tp-yellow">CSS</span><span class="tech-pill tp-yellow">JavaScript</span><span class="tech-pill tp-cyan">React JS</span><span class="tech-pill tp-violet">Python</span><span class="tech-pill tp-cyan">MySQL</span>
+          </div>
+        </div>
+        <div class="proj-card reveal" style="transition-delay:0.3s">
+          <div class="proj-icon"><i class="fas fa-file-alt"></i></div>
+          <div class="proj-title">Last Minute Resume Builder</div>
+          <div class="proj-desc">A tool designed for students and job seekers to easily create, customize, and download resumes. Editable templates make resume building fast and hassle-free.</div>
+          <div class="tech-pills">
+            <span class="tech-pill tp-yellow">HTML</span><span class="tech-pill tp-yellow">CSS</span><span class="tech-pill tp-yellow">JavaScript</span><span class="tech-pill tp-violet">Python</span><span class="tech-pill tp-violet">Flask</span><span class="tech-pill tp-cyan">SQLite</span>
+          </div>
+        </div>
+        <div class="proj-card reveal" style="transition-delay:0.1s">
+          <div class="proj-icon"><i class="fas fa-wallet"></i></div>
+          <div class="proj-title">Expenses Tracker</div>
+          <div class="proj-desc">A simple and user-friendly expense tracking application that helps users manage their daily spending. Add, edit, delete expenses, categorize transactions, and view totals with a clean responsive UI.</div>
+          <div class="tech-pills">
+            <span class="tech-pill tp-yellow">HTML</span><span class="tech-pill tp-yellow">CSS</span><span class="tech-pill tp-yellow">JavaScript</span><span class="tech-pill tp-cyan">SQLite</span>
+          </div>
+        </div>
+        <div class="proj-card reveal" style="transition-delay:0.1s">
+          <div class="proj-icon"><i class="fas fa-wallet"></i></div>
+          <div class="proj-title">Expenses Tracker</div>
+          <div class="proj-desc">A simple and user-friendly expense tracking application that helps users manage their daily spending. Add, edit, delete expenses, categorize transactions, and view totals with a clean responsive UI.</div>
+          <div class="tech-pills">
+            <span class="tech-pill tp-yellow">HTML</span><span class="tech-pill tp-yellow">CSS</span><span class="tech-pill tp-yellow">JavaScript</span><span class="tech-pill tp-cyan">SQLite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Recognition</div>
+      <h2 class="section-title">My <span>Achievements</span></h2>
+      <p class="section-sub">Proud moments from competitions, hackathons, and national-level events.</p>
+    </div>
+    <div class="achv-cards-grid reveal" style="transition-delay:0.1s">
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-trophy" style="color:#fbbf24"></i></div>
+        <div><div class="achv-text">First Place in Hackathon</div><div class="achv-sub">Bhumi's Foundation · KSR College</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-award" style="color:#f59e0b"></i></div>
+        <div><div class="achv-text">Best Outgoing Student of 2026</div><div class="achv-sub">Awarded for Best Outgoing Student for Department level in my PG</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-medal" style="color:#cd7f32"></i></div>
+        <div><div class="achv-text">Third Place – Debugging Competition</div><div class="achv-sub">National Level Symposium</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-medal" style="color:#94a3b8"></i></div>
+        <div><div class="achv-text">Second Place – Meme Creation</div><div class="achv-sub">Periyar University</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-lightbulb" style="color:#fbbf24"></i></div>
+        <div><div class="achv-text">GDSC Hackathon Participant</div><div class="achv-sub">National Level Hackathon at KSR College</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-lock" style="color:#22d3ee"></i></div>
+        <div><div class="achv-text">Hack the Vault Participant</div><div class="achv-sub">College Level at Nandha Engineering College</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-bullseye" style="color:#f472b6"></i></div>
+        <div><div class="achv-text">Paper Presentation – Runner Up</div><div class="achv-sub">Inter-College Technical Symposium</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-award" style="color:#f59e0b"></i></div>
+        <div><div class="achv-text">Completed Virtual Internship</div><div class="achv-sub">Deloitte Technology Job Simulation · Forage</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-rocket" style="color:#8b5cf6"></i></div>
+        <div><div class="achv-text">Runner at Shuttle</div><div class="achv-sub">Achieved 2nd prize at College Level</div></div>
+      </div>
+      <div class="achv-item">
+        <div class="achv-icon-box"><i class="fas fa-trophy" style="color:#fbbf24"></i></div>
+        <div><div class="achv-text">Winners at Cricket</div><div class="achv-sub">Winners in Sports Day at Excel Engineering College</div></div>
+      </div>
+      <!-- <div class="achv-item">
+  <div class="achv-icon-box">
+    <i class="bi bi-award-fill" style="color:#ff9900"></i>
+  </div>
+  <div>
+    <div class="achv-text">Winners at Cricket</div>
+    <div class="achv-sub">Winners in Sports Day at Excel Engineering College</div>
+  </div>
+</div> -->
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-wrap">
+    <div class="reveal">
+      <div class="section-label">Credentials</div>
+      <h2 class="section-title">My <span>Certifications</span></h2>
+      <p class="section-sub">Professional certifications from industry leaders in technology and computing.</p>
+    </div>
+    <div class="cert-grid-full reveal" style="transition-delay:0.1s">
+
+      <div class="cert-card" onclick="openCert('Artificial Intelligence Foundation','Wipro Future Skills','2024','Technology & AI','fa-robot','Wipro','certificates/TNext_FS_24_AI_G_1799_Praveen R_page-0001.jpg')">
+        <span class="cert-num">01</span>
+        <div class="cert-icon-box" style="background:rgba(34,211,238,0.12)"><i class="fas fa-robot" style="color:#22d3ee;font-size:1.3rem"></i></div>
+        <div class="cert-title">Artificial Intelligence Foundation</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(34,211,238,0.1);color:var(--cyan)">Wipro</span>
+          <span class="cert-year">· 2024</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" onclick="openCert('Cloud Computing Foundation','Wipro Future Skills','2024','Cloud Technology','fa-cloud','Wipro','certificates/TNext_FS_24_CC_G_0941_Praveen R_page-0001.jpg')">
+        <span class="cert-num">02</span>
+        <div class="cert-icon-box" style="background:rgba(251,191,36,0.12)"><i class="fas fa-cloud" style="color:#fbbf24;font-size:1.3rem"></i></div>
+        <div class="cert-title">Cloud Computing Foundation</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(251,191,36,0.1);color:#fbbf24">Wipro</span>
+          <span class="cert-year">· 2024</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" onclick="openCert('Cyber Security & Digital Safety Essentials','Wipro Future Skills','2024','Security','fa-shield-alt','Wipro','certificates/TNext_FS_24_CS_G_1576_Praveen R_page-0001.jpg')">
+        <span class="cert-num">03</span>
+        <div class="cert-icon-box" style="background:rgba(139,92,246,0.12)"><i class="fas fa-shield-alt" style="color:#a78bfa;font-size:1.3rem"></i></div>
+        <div class="cert-title">Cyber Security & Digital Safety Essentials</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(139,92,246,0.1);color:#a78bfa">Wipro</span>
+          <span class="cert-year">· 2024</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" onclick="openCert('Basics of Data Structure with Python','Udemy','2025','Data Structures','fa-database','Udemy','certificates/data structure with py.jpg')">
+        <span class="cert-num">04</span>
+        <div class="cert-icon-box" style="background:rgba(34,197,94,0.12)"><i class="fas fa-database" style="color:#4ade80;font-size:1.3rem"></i></div>
+        <div class="cert-title">Basics of Data Structure with Python</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(34,197,94,0.1);color:#4ade80">Udemy</span>
+          <span class="cert-year">· 2025</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" onclick="openCert('Deloitte Technology Job Simulation','Deloitte','2026','Virtual Internship','fa-briefcase','Deloitte','certificates/DELOITTE CERTIFICATE_page-0001.jpg')">
+        <span class="cert-num">05</span>
+        <div class="cert-icon-box" style="background:rgba(236,72,153,0.12)"><i class="fas fa-briefcase" style="color:#f472b6;font-size:1.3rem"></i></div>
+        <div class="cert-title">Deloitte Technology Job Simulation</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(236,72,153,0.1);color:#f472b6">Deloitte</span>
+          <span class="cert-year">· 2026</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" style="border-left-color:#60a5fa" onclick="openCert('Microsoft Office 365 Productivity Suite','Microsoft','2024','Productivity','fa-microsoft','Microsoft','certificates/ms-office.jpg')">
+        <span class="cert-num">06</span>
+        <div class="cert-icon-box" style="background:rgba(0,120,212,0.12)"><i class="fab fa-microsoft" style="color:#60a5fa;font-size:1.3rem"></i></div>
+        <div class="cert-title">Microsoft Office 365 Productivity Suite</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(0,120,212,0.1);color:#60a5fa">Microsoft</span>
+          <span class="cert-year">· 2024</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" style="border-left-color:#a53535" onclick="openCert('Python for Beginners – Full Course','Simplilearn','2024','Programming','fa-python','Simplilearn','certificates/python-beginners.jpg')">
+        <span class="cert-num">07</span>
+        <div class="cert-icon-box" style="background:rgba(53,114,165,0.15)"><i class="fab fa-python" style="color:#93c5fd;font-size:1.3rem"></i></div>
+        <div class="cert-title">Python for Beginners – Full Course</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(53,114,165,0.12);color:#93c5fd">Simplilearn</span>
+          <span class="cert-year">· 2024</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" style="border-left-color:#50ff1b" onclick="openCert('Python for Beginners – Full Course','Simplilearn','2024','Programming','fa-python','Simplilearn','certificates/python-beginners.jpg')">
+        <span class="cert-num">08</span>
+        <div class="cert-icon-box" style="background:rgba(53,114,165,0.15)"><i class="fab fa-python" style="color:#93c5fd;font-size:1.3rem"></i></div>
+        <div class="cert-title">Python for Beginners – Full Course</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(53,114,165,0.12);color:#93c5fd">Simplilearn</span>
+          <span class="cert-year">· 2024</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+      <div class="cert-card" style="border-left-color:#d900ff" onclick="openCert('Python for Beginners – Full Course','Simplilearn','2024','Programming','fa-python','Simplilearn','certificates/python-beginners.jpg')">
+        <span class="cert-num">09</span>
+        <div class="cert-icon-box" style="background:rgba(53,114,165,0.15)"><i class="fab fa-python" style="color:#93c5fd;font-size:1.3rem"></i></div>
+        <div class="cert-title">Python for Beginners – Full Course</div>
+        <div class="cert-meta">
+          <span class="cert-issuer" style="background:rgba(53,114,165,0.12);color:#93c5fd">Simplilearn</span>
+          <span class="cert-year">· 2024</span>
+        </div>
+        <div class="cert-view-row">VIEW CERTIFICATE <i class="fas fa-external-link-alt"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper reveal">
+    <div class="section-label" style="justify-content:center;margin-bottom:20px">Get In Touch</div>
+    <h2 class="contact-big">Let's Work <span>Together</span></h2>
+    <p class="contact-sub">Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+    <a href="mailto:praveenprv2004@gmail.com" class="say-hello-btn">
+      <i class="fas fa-envelope"></i> Say Hello
+    </a>
+    <div class="contact-divider"></div>
+    <div class="contact-socials">
+      <a href="https://github.com" target="_blank" class="contact-social-link"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/praveen-prv" target="_blank" class="contact-social-link"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://instagram.com/praveen_prv_/" target="_blank" class="contact-social-link"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Praveen Ravikumar</div>
+    <div class="footer-line"></div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/praveen-prv" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:praveenprv2004@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://instagram.com/praveen_prv_/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="footer-copy">Designed &amp; Developed by Praveen Ravikumar &nbsp;·&nbsp; © 2025–2026</div>
+  </div>
+</footer>
+
+<script src="praveen-portfolio.js"></script>
+</body>
+</html>
