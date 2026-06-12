@@ -190,6 +190,11 @@ section{position:relative;z-index:1}
 .tp-green{background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);color:#4ade80}
 .tp-cyan{background:rgba(34,211,238,0.12);border:1px solid rgba(34,211,238,0.3);color:var(--cyan)}
 .tp-pink{background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#f472b6}
+.tp-blue{
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #f97316;
+}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
 .proj-card{padding:28px;border-radius:20px;background:rgba(255,255,255,0.03);border:1px solid var(--border);transition:all 0.3s;display:flex;flex-direction:column}
 .proj-card:hover{border-color:rgba(34,211,238,0.2);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
